@@ -1,8 +1,23 @@
 package com.hackerrank.stocktrade.model;
 
-public class User {
+import lombok.Data;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import java.io.Serializable;
+
+@Entity
+@Data
+public class User implements Serializable {
+    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "userId")
     private Long id;
     private String name;
+
+//    @OneToMany(mappedBy="user")
+//    private Set< Trade > trades;
     
     public User() {
     }
@@ -12,19 +27,5 @@ public class User {
         this.name = name;
     }
     
-    public Long getId() {
-        return this.id;
-    }
-    
-    public void setId(Long id) {
-        this.id = id;
-    }
-    
-    public String getName() {
-        return this.name;
-    }
-    
-    public void setName(String name) {
-        this.name = name;
-    }
+
 }
